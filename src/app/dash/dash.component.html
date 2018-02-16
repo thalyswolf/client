@@ -1,0 +1,32 @@
+<div class="container">
+  <h1>Agenda de contatos</h1>
+  <p>@{{ this.currentUser.user.username }}</p>
+  <br>
+  <button (click)="onClick()" class="btn btn-default" style="margin-bottom:5px">Cadastrar Contato</button><br />
+  <div [hidden]="cadastrar">
+    <div class="form-group">
+     <label for="name">Nome do contato</label>
+     <input  class="form-control" id="name" aria-describedby="userHelp" [(ngModel)]="name" placeholder="Digite o usuário">
+  </div>
+  <div class="form-group">
+     <label for="phone">Número do contato</label>
+     <input  class="form-control" id="phone" aria-describedby="userHelp" [(ngModel)]="phone" placeholder="Digite o usuário">
+     <small id="emailHelp" class="form-text text-muted">Os dados do seu contato não serão divulgados.</small>
+  </div>
+  <button type="submit" class="btn btn-primary right" style="margin-bottom:5px" (click)="onContacts()">Salvar</button>
+  </div>
+</div>
+<div class="container">
+  <ul class="list-group">
+    <li class="list-group-item" *ngFor="let c of contacts">
+    <div class="row">
+      <div class="col-md-5">
+      <b>Nome: </b>{{  c.name  }} 
+      </div> 
+    <div class="col-md-5">
+      <b>Telefone: </b> {{ c.phone }}
+    </div>
+    </div>
+    </li>    
+  </ul>
+</div>
